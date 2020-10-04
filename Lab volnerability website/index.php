@@ -7,9 +7,9 @@
     <body>
         <h2>Чтобы получить доступ к библиотеке, введите учебные данные :</h2>
         <form method="get" action="?">
-            <p>Введите ваше имя</p>
+            <p>Введите имя: </p>
             <input name="name" type="text">
-            <p>Введите ваш пароль</p>
+            <p>Введите пароль: </p>
             <input name="password" type="text"><br />
             <input type="submit">
         </form>
@@ -32,8 +32,8 @@
         if ($result = $mysqli->query("SELECT * FROM `members` WHERE name = '$name' AND password = '$password'")) {
             while ($obj = $result->fetch_object()) {
                 echo "<p><b>Ваше имя: </b> $obj->name</p>
-        <p><b>Ваш статус:</b> $obj->status</p>
-        <p><b>Доступные для Вас книги:</b> $obj->books</p><hr />";
+        <p><b>мой статус:</b> $obj->status</p>
+        <p><b>Доступные книги:</b> $obj->books</p><hr />";
             }
         } else {
             printf("Ошибка: %s\n", $mysqli->error);
